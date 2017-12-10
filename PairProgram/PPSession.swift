@@ -1,6 +1,6 @@
 //
 //  PPSession.swift
-//  Alternate
+//  PairProgram
 //
 //  Created by Foucauld Degeorges on 09/12/2017.
 //  Copyright © 2017 Foucauld Degeorges. All rights reserved.
@@ -31,7 +31,7 @@ class PPSession {
         }
 
         if self.remainingSeconds < 1 {
-            self.timer.invalidate()
+            self.endTimer()
             self.timerEndCallback()
             //Send alert to indicate time's up.
         } else {
@@ -46,6 +46,10 @@ class PPSession {
     
     func resumeTimer() {
         self.timerPaused = false
+    }
+    
+    func endTimer() {
+        self.timer.invalidate()
     }
     
     func startSession(duration: Int) {

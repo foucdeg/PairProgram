@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
     </dependencies>
     <objects>
@@ -17,6 +18,7 @@
             <connections>
                 <outlet property="continueMenuItem" destination="RAb-Se-qfI" id="lz6-Gf-RmE"/>
                 <outlet property="customStartMenuItem" destination="ohO-4S-yBP" id="KKc-GF-Kk0"/>
+                <outlet property="endMenuItem" destination="YGS-4B-bgy" id="o3f-16-y0i"/>
                 <outlet property="pauseMenuItem" destination="79B-Gh-3HI" id="t0W-yD-rHF"/>
                 <outlet property="quickStartMenuItem" destination="vnp-R8-aXU" id="xol-GG-SjA"/>
                 <outlet property="resumeMenuItem" destination="7p0-ze-00O" id="NJL-aM-ll7"/>
@@ -60,6 +62,12 @@
                         <action selector="resumeClickedWithSender:" target="8yq-J0-daR" id="ibo-az-Fp3"/>
                     </connections>
                 </menuItem>
+                <menuItem title="End" id="YGS-4B-bgy">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="endClickedWithSender:" target="8yq-J0-daR" id="xcg-vX-0kp"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="34p-FQ-1cf"/>
                 <menuItem title="Quit" id="iQ1-6q-621">
                     <modifierMask key="keyEquivalentModifierMask"/>
@@ -68,7 +76,7 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-290" y="254.5"/>
+            <point key="canvasLocation" x="-290" y="264.5"/>
         </menu>
     </objects>
 </document>

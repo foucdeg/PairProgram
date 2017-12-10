@@ -1,6 +1,6 @@
 //
 //  PreferencesWindow.swift
-//  Alternate
+//  PairProgram
 //
 //  Created by Foucauld Degeorges on 09/12/2017.
 //  Copyright © 2017 Foucauld Degeorges. All rights reserved.
