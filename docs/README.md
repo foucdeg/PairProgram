@@ -1,6 +1,6 @@
 # PairProgram
 
-A timer in your Mac tray to pair program easily
+A timer in your Mac tray to pair program easily.
 
 ![base](./images/base.png)
 
@@ -23,4 +23,4 @@ Email me at foucauld.degeorges@gmail.com if you encounter issues or if you have 
 ## Coming up
 
  - keyboard shortcuts to start, continue, pause, and end the timer
- - whatever user feedback says ;)
+ - whatever user feedback says :D
