@@ -8,10 +8,10 @@ A timer in your Mac tray to pair program easily
 ![configure](./images/config.png)
 
 ### Counting down!
-![base](./images/running.png)
+![running](./images/running.png)
 
 ### Time to switch!
-![base](./images/base.png)
+![switch](./images/switch.png)
 
 ## Support
 Email me at foucauld.degeorges@gmail.com if you encounter issues or if you have ideas for improvement.
