@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		955957601FDC9CAB0082F527 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559575F1FDC9CAB0082F527 /* StatusMenuController.swift */; };
+		955957631FDC9CB20082F527 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955957621FDC9CB20082F527 /* PreferencesWindow.swift */; };
+		955957651FDC9CB40082F527 /* PPSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955957641FDC9CB40082F527 /* PPSession.swift */; };
+		955957661FDC9E8A0082F527 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 955957611FDC9CB00082F527 /* PreferencesWindow.xib */; };
 		95FAA8CB1FDC9BA4006EAAD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FAA8CA1FDC9BA4006EAAD1 /* AppDelegate.swift */; };
 		95FAA8CD1FDC9BA4006EAAD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FAA8CC1FDC9BA4006EAAD1 /* Assets.xcassets */; };
 		95FAA8D01FDC9BA4006EAAD1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95FAA8CE1FDC9BA4006EAAD1 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9559575F1FDC9CAB0082F527 /* StatusMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatusMenuController.swift; path = /Volumes/Dev/PairProgram/PairProgram/StatusMenuController.swift; sourceTree = "<absolute>"; };
+		955957611FDC9CB00082F527 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PreferencesWindow.xib; path = /Volumes/Dev/PairProgram/PairProgram/PreferencesWindow.xib; sourceTree = "<absolute>"; };
+		955957621FDC9CB20082F527 /* PreferencesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreferencesWindow.swift; path = /Volumes/Dev/PairProgram/PairProgram/PreferencesWindow.swift; sourceTree = "<absolute>"; };
+		955957641FDC9CB40082F527 /* PPSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PPSession.swift; path = /Volumes/Dev/PairProgram/PairProgram/PPSession.swift; sourceTree = "<absolute>"; };
 		95FAA8C71FDC9BA4006EAAD1 /* PairProgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PairProgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FAA8CA1FDC9BA4006EAAD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95FAA8CC1FDC9BA4006EAAD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +59,10 @@
 		95FAA8C91FDC9BA4006EAAD1 /* PairProgram */ = {
 			isa = PBXGroup;
 			children = (
+				9559575F1FDC9CAB0082F527 /* StatusMenuController.swift */,
+				955957641FDC9CB40082F527 /* PPSession.swift */,
+				955957621FDC9CB20082F527 /* PreferencesWindow.swift */,
+				955957611FDC9CB00082F527 /* PreferencesWindow.xib */,
 				95FAA8CA1FDC9BA4006EAAD1 /* AppDelegate.swift */,
 				95FAA8CC1FDC9BA4006EAAD1 /* Assets.xcassets */,
 				95FAA8CE1FDC9BA4006EAAD1 /* MainMenu.xib */,
@@ -120,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95FAA8CD1FDC9BA4006EAAD1 /* Assets.xcassets in Resources */,
+				955957661FDC9E8A0082F527 /* PreferencesWindow.xib in Resources */,
 				95FAA8D01FDC9BA4006EAAD1 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				955957601FDC9CAB0082F527 /* StatusMenuController.swift in Sources */,
+				955957631FDC9CB20082F527 /* PreferencesWindow.swift in Sources */,
+				955957651FDC9CB40082F527 /* PPSession.swift in Sources */,
 				95FAA8CB1FDC9BA4006EAAD1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,12 +276,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PairProgram/PairProgram.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4385UCXT6V;
 				INFOPLIST_FILE = PairProgram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = net.fouc.PairProgram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -275,12 +295,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PairProgram/PairProgram.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 4385UCXT6V;
 				INFOPLIST_FILE = PairProgram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_BUNDLE_IDENTIFIER = net.fouc.PairProgram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

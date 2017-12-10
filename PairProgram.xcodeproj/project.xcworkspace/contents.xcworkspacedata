@@ -2,6 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:PairProgram.xcodeproj">
+      location = "group:/Volumes/Dev/PairProgram/PairProgram/PPSession.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Volumes/Dev/PairProgram/PairProgram/PreferencesWindow.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Volumes/Dev/PairProgram/PairProgram/PreferencesWindow.xib">
+   </FileRef>
+   <FileRef
+      location = "group:/Volumes/Dev/PairProgram/PairProgram/StatusMenuController.swift">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
