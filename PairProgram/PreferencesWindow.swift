@@ -10,6 +10,7 @@ import Cocoa
 
 protocol PreferencesWindowDelegate {
     func preferencesDidUpdate()
+    func preferencesDidClose()
 }
 
 class PreferencesWindow: NSWindowController, NSWindowDelegate {
@@ -37,6 +38,7 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
         durationSelector.addItems(withTitles: PreferencesWindow.durationOptions)
         numberOfCycles.removeAllItems()
         numberOfCycles.addItems(withTitles: PreferencesWindow.cycleOptions)
+        self.window?.level = .floating
         
         let defaults = UserDefaults.standard
         let selectedDurationText = self.makeDurationTextTitle(duration: defaults.integer(forKey: "duration"))
@@ -63,6 +65,11 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
     
     func makeCyclesValue(text: String) -> Int {
         return PreferencesWindow.cycleOptions.index(of: text)!
+    }
+
+    @IBAction func cancelClicked(_ sender: NSButtonCell) {
+        delegate?.preferencesDidClose()
+        self.close()
     }
     
     @IBAction func startClicked(_ sender: NSButton) {

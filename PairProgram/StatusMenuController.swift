@@ -21,6 +21,7 @@ enum PPState {
 
 @available(OSX 10.11, *)
 class StatusMenuController: NSViewController, PreferencesWindowDelegate {
+    
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var quickStartMenuItem: NSMenuItem!
     @IBOutlet weak var statusMenuLine: NSMenuItem!
@@ -181,6 +182,10 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
         self.transitionFromPrefsToCoding()
     }
     
+    func preferencesDidClose() {
+        self.transitionFromPrefsToInit()
+    }
+    
     func initializePreferences() {
         let defaults = UserDefaults.standard
         if (defaults.integer(forKey: "duration") == 0) {
@@ -217,6 +222,14 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
         preferencesWindow.showWindow(nil)
         self.state = PPState.STATE_PREFS
         self.customStartMenuItem.isHidden = true
+        self.quickStartMenuItem.isHidden = true
+    }
+    
+    func transitionFromPrefsToInit() {
+        try! self.assertState(expectedState: PPState.STATE_PREFS)
+        self.state = PPState.STATE_INIT
+        self.customStartMenuItem.isHidden = false
+        self.quickStartMenuItem.isHidden = false
     }
     
     func transitionFromPrefsToCoding() {
@@ -229,7 +242,6 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
         
         self.session.startSession(duration: self.duration!)
         self.state = PPState.STATE_CODING
-        self.quickStartMenuItem.isHidden = true
         self.pauseMenuItem.isHidden = false
         self.endMenuItem.isHidden = false
         self.statusItem.image = player1Icon
