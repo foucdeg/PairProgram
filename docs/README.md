@@ -13,6 +13,13 @@ A timer in your Mac tray to pair program easily.
 ### Time to switch!
 ![switch](./images/switch.png)
 
+## Keyboard Shortcuts
+
+ - Start / Continue / Resume : Alt+G (for "Go")
+ - Pause / Resume : Alt+P
+ - End: Alt+E
+
+
 ## Support
 Email me at foucauld.degeorges@gmail.com if you encounter issues or if you have ideas for improvement.
 

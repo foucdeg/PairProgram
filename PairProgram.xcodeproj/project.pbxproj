@@ -11,16 +11,35 @@
 		955957631FDC9CB20082F527 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955957621FDC9CB20082F527 /* PreferencesWindow.swift */; };
 		955957651FDC9CB40082F527 /* PPSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955957641FDC9CB40082F527 /* PPSession.swift */; };
 		955957661FDC9E8A0082F527 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 955957611FDC9CB00082F527 /* PreferencesWindow.xib */; };
+		959EA9BA1FDF1DA9004CD926 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 959EA9B91FDF1DA9004CD926 /* Cartfile */; };
+		959EA9BC1FDF1EBD004CD926 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959EA9BB1FDF1EBC004CD926 /* HotKey.framework */; };
+		959EA9BD1FDF1EBD004CD926 /* HotKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 959EA9BB1FDF1EBC004CD926 /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		95FAA8CB1FDC9BA4006EAAD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FAA8CA1FDC9BA4006EAAD1 /* AppDelegate.swift */; };
 		95FAA8CD1FDC9BA4006EAAD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FAA8CC1FDC9BA4006EAAD1 /* Assets.xcassets */; };
 		95FAA8D01FDC9BA4006EAAD1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95FAA8CE1FDC9BA4006EAAD1 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		959EA9BE1FDF1EBD004CD926 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				959EA9BD1FDF1EBD004CD926 /* HotKey.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9559575F1FDC9CAB0082F527 /* StatusMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatusMenuController.swift; path = /Volumes/Dev/PairProgram/PairProgram/StatusMenuController.swift; sourceTree = "<absolute>"; };
 		955957611FDC9CB00082F527 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PreferencesWindow.xib; path = /Volumes/Dev/PairProgram/PairProgram/PreferencesWindow.xib; sourceTree = "<absolute>"; };
 		955957621FDC9CB20082F527 /* PreferencesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreferencesWindow.swift; path = /Volumes/Dev/PairProgram/PairProgram/PreferencesWindow.swift; sourceTree = "<absolute>"; };
 		955957641FDC9CB40082F527 /* PPSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PPSession.swift; path = /Volumes/Dev/PairProgram/PairProgram/PPSession.swift; sourceTree = "<absolute>"; };
+		959EA9B91FDF1DA9004CD926 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		959EA9BB1FDF1EBC004CD926 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HotKey.framework; path = PairProgram/Carthage/Build/Mac/HotKey.framework; sourceTree = "<group>"; };
 		95FAA8C71FDC9BA4006EAAD1 /* PairProgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PairProgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FAA8CA1FDC9BA4006EAAD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95FAA8CC1FDC9BA4006EAAD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				959EA9BC1FDF1EBD004CD926 /* HotKey.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +63,7 @@
 		95FAA8BE1FDC9BA4006EAAD1 = {
 			isa = PBXGroup;
 			children = (
+				959EA9BB1FDF1EBC004CD926 /* HotKey.framework */,
 				95FAA8C91FDC9BA4006EAAD1 /* PairProgram */,
 				95FAA8C81FDC9BA4006EAAD1 /* Products */,
 			);
@@ -68,6 +89,7 @@
 				95FAA8CE1FDC9BA4006EAAD1 /* MainMenu.xib */,
 				95FAA8D11FDC9BA4006EAAD1 /* Info.plist */,
 				95FAA8D21FDC9BA4006EAAD1 /* PairProgram.entitlements */,
+				959EA9B91FDF1DA9004CD926 /* Cartfile */,
 			);
 			path = PairProgram;
 			sourceTree = "<group>";
@@ -82,6 +104,7 @@
 				95FAA8C31FDC9BA4006EAAD1 /* Sources */,
 				95FAA8C41FDC9BA4006EAAD1 /* Frameworks */,
 				95FAA8C51FDC9BA4006EAAD1 /* Resources */,
+				959EA9BE1FDF1EBD004CD926 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +156,7 @@
 			files = (
 				95FAA8CD1FDC9BA4006EAAD1 /* Assets.xcassets in Resources */,
 				955957661FDC9E8A0082F527 /* PreferencesWindow.xib in Resources */,
+				959EA9BA1FDF1DA9004CD926 /* Cartfile in Resources */,
 				95FAA8D01FDC9BA4006EAAD1 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +304,10 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4385UCXT6V;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PairProgram/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = PairProgram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -299,6 +327,10 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4385UCXT6V;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PairProgram/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = PairProgram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;

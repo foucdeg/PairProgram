@@ -32,8 +32,8 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="aUP-3N-0EU"/>
-                <menuItem title="Start" id="vnp-R8-aXU">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                <menuItem title="Start" keyEquivalent="g" id="vnp-R8-aXU">
+                    <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                     <connections>
                         <action selector="startClickedWithSender:" target="8yq-J0-daR" id="QzF-5X-2X8"/>
                     </connections>
@@ -44,26 +44,26 @@
                         <action selector="startCustomClickedWithSender:" target="8yq-J0-daR" id="cGX-gn-Aaw"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Continue" id="RAb-Se-qfI">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                <menuItem title="Continue" keyEquivalent="g" id="RAb-Se-qfI">
+                    <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                     <connections>
                         <action selector="continueClickedWithSender:" target="8yq-J0-daR" id="uZ3-sT-dVM"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Pause" id="79B-Gh-3HI">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                <menuItem title="Pause" keyEquivalent="p" id="79B-Gh-3HI">
+                    <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                     <connections>
                         <action selector="pauseClickedWithSender:" target="8yq-J0-daR" id="c9a-TU-7FA"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Resume" id="7p0-ze-00O">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                <menuItem title="Resume" keyEquivalent="p" id="7p0-ze-00O">
+                    <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                     <connections>
                         <action selector="resumeClickedWithSender:" target="8yq-J0-daR" id="ibo-az-Fp3"/>
                     </connections>
                 </menuItem>
-                <menuItem title="End" id="YGS-4B-bgy">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                <menuItem title="End" keyEquivalent="e" id="YGS-4B-bgy">
+                    <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                     <connections>
                         <action selector="endClickedWithSender:" target="8yq-J0-daR" id="xcg-vX-0kp"/>
                     </connections>
