@@ -28,8 +28,3 @@ Email me at foucauld.degeorges@gmail.com if you encounter issues or if you have 
  - 1.2: adds notifications and French translation
  - 1.1: improve config screen, add keyboard shortcuts
  - 1.0: initial release
-
-## Coming up
-
- - keyboard shortcuts to start, continue, pause, and end the timer
- - whatever user feedback says :D
