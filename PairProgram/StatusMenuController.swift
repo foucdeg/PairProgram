@@ -99,7 +99,7 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate, NSUserN
         goHotKey = HotKey(keyCombo: KeyCombo(key: .g, modifiers: [.option]))
         pauseHotKey = HotKey(keyCombo: KeyCombo(key: .p, modifiers: [.option]))
         endHotKey = HotKey(keyCombo: KeyCombo(key: .e, modifiers: [.option]))
-        
+
         NSUserNotificationCenter.default.delegate = self
     }
 
@@ -128,7 +128,7 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate, NSUserN
     func hasMoreRounds() -> Bool {
         return (self.totalCycles! == 0) || (self.currentCycle < self.totalCycles!) || (self.currentPlayer == 0)
     }
-    
+
     func getNextPlayer() -> Int {
         return (self.currentPlayer + 1) % 2;
     }
@@ -172,7 +172,7 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate, NSUserN
             }
         }
     }
-    
+
     func showNotification() {
         let notification = NSUserNotification()
         if self.state == .STATE_WAITING {
@@ -187,10 +187,10 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate, NSUserN
             notification.hasActionButton = true
             notification.actionButtonTitle = NSLocalizedString("notif.end", comment: "")
         }
-        
+
         NSUserNotificationCenter.default.deliver(notification)
     }
-    
+
     func hideNotification() {
         NSUserNotificationCenter.default.removeAllDeliveredNotifications()
     }
@@ -327,7 +327,7 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate, NSUserN
     func preferencesDidClose() {
         self.transitionFromPrefsToInit()
     }
-    
+
     func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
         switch (notification.activationType) {
         case .actionButtonClicked:
@@ -408,10 +408,10 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate, NSUserN
         self.continueMenuItem.isHidden = false
         self.continueMenuItem.title = String(format: NSLocalizedString("menu.continue", comment: ""), self.getNextPlayer() + 1)
     }
-    
+
     func transitionFromCodingToFinished() {
         try! self.assertState(expectedState: .STATE_CODING)
-        
+
         self.state = .STATE_FINISHED
         self.playAlarm()
         self.showNotification()
@@ -526,10 +526,10 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate, NSUserN
         self.state = .STATE_INIT
         self.updateStatusLine()
     }
-    
+
     func transitionFromFinishedToInit() {
         try! self.assertState(expectedState: .STATE_FINISHED)
-    
+
         audio?.stop()
         self.hideNotification()
         statusItem.title = nil
