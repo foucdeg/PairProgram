@@ -1,0 +1,33 @@
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "7pp-Xt-C8V"; */
+"7pp-Xt-C8V.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "Item 3"; ObjectID = "9cg-mQ-6iE"; */
+"9cg-mQ-6iE.title" = "Item 3";
+
+/* Class = "NSMenuItem"; title = "5 Cycles"; ObjectID = "Apg-kG-RXw"; */
+"Apg-kG-RXw.title" = "5 Cycles";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "CeI-Vk-ri2"; */
+"CeI-Vk-ri2.title" = "Item 2";
+
+/* Class = "NSWindow"; title = "Custom Session"; ObjectID = "F0z-JX-Cv5"; */
+"F0z-JX-Cv5.title" = "Session personnalisée";
+
+/* Class = "NSTextFieldCell"; title = "Round Duration"; ObjectID = "PfR-MU-52g"; */
+"PfR-MU-52g.title" = "Durée d'un tour";
+
+/* Class = "NSTextFieldCell"; title = "Number of Cycles"; ObjectID = "bnu-RS-4Cq"; */
+"bnu-RS-4Cq.title" = "Nombre de cycles";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "g3k-kA-gde"; */
+"g3k-kA-gde.title" = "Annuler";
+
+/* Class = "NSMenuItem"; title = "Item 2"; ObjectID = "j3S-lR-ESN"; */
+"j3S-lR-ESN.title" = "Item 2";
+
+/* Class = "NSMenuItem"; title = "Duration"; ObjectID = "jH7-37-ehs"; */
+"jH7-37-ehs.title" = "Duration";
+
+/* Class = "NSButtonCell"; title = "Save & Start"; ObjectID = "mUd-hU-LdL"; */
+"mUd-hU-LdL.title" = "Démarrer";

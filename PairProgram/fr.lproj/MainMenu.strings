@@ -1,0 +1,24 @@
+
+/* Class = "NSMenuItem"; title = "Pause"; ObjectID = "79B-Gh-3HI"; */
+"79B-Gh-3HI.title" = "Pause";
+
+/* Class = "NSMenuItem"; title = "Resume"; ObjectID = "7p0-ze-00O"; */
+"7p0-ze-00O.title" = "Reprendre";
+
+/* Class = "NSMenuItem"; title = "Continue"; ObjectID = "RAb-Se-qfI"; */
+"RAb-Se-qfI.title" = "Continuer";
+
+/* Class = "NSMenuItem"; title = "End"; ObjectID = "YGS-4B-bgy"; */
+"YGS-4B-bgy.title" = "Terminer";
+
+/* Class = "NSMenuItem"; title = "Quit"; ObjectID = "iQ1-6q-621"; */
+"iQ1-6q-621.title" = "Quitter";
+
+/* Class = "NSMenuItem"; title = "Not Running"; ObjectID = "kzI-sY-5v1"; */
+"kzI-sY-5v1.title" = "Pas de session en cours";
+
+/* Class = "NSMenuItem"; title = "Start Other..."; ObjectID = "ohO-4S-yBP"; */
+"ohO-4S-yBP.title" = "Configurer...";
+
+/* Class = "NSMenuItem"; title = "Start"; ObjectID = "vnp-R8-aXU"; */
+"vnp-R8-aXU.title" = "Démarrer";

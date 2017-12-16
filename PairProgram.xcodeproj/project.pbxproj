@@ -10,7 +10,8 @@
 		955957601FDC9CAB0082F527 /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9559575F1FDC9CAB0082F527 /* StatusMenuController.swift */; };
 		955957631FDC9CB20082F527 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955957621FDC9CB20082F527 /* PreferencesWindow.swift */; };
 		955957651FDC9CB40082F527 /* PPSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955957641FDC9CB40082F527 /* PPSession.swift */; };
-		955957661FDC9E8A0082F527 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 955957611FDC9CB00082F527 /* PreferencesWindow.xib */; };
+		9571CA5A1FE5875B008552F0 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9571CA5C1FE5875B008552F0 /* PreferencesWindow.xib */; };
+		9571CA6C1FE5971C008552F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9571CA6A1FE5971C008552F0 /* Localizable.strings */; };
 		959EA9BA1FDF1DA9004CD926 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 959EA9B91FDF1DA9004CD926 /* Cartfile */; };
 		959EA9BC1FDF1EBD004CD926 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 959EA9BB1FDF1EBC004CD926 /* HotKey.framework */; };
 		959EA9BD1FDF1EBD004CD926 /* HotKey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 959EA9BB1FDF1EBC004CD926 /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -35,9 +36,16 @@
 
 /* Begin PBXFileReference section */
 		9559575F1FDC9CAB0082F527 /* StatusMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatusMenuController.swift; path = /Volumes/Dev/PairProgram/PairProgram/StatusMenuController.swift; sourceTree = "<absolute>"; };
-		955957611FDC9CB00082F527 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PreferencesWindow.xib; path = /Volumes/Dev/PairProgram/PairProgram/PreferencesWindow.xib; sourceTree = "<absolute>"; };
 		955957621FDC9CB20082F527 /* PreferencesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreferencesWindow.swift; path = /Volumes/Dev/PairProgram/PairProgram/PreferencesWindow.swift; sourceTree = "<absolute>"; };
 		955957641FDC9CB40082F527 /* PPSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PPSession.swift; path = /Volumes/Dev/PairProgram/PairProgram/PPSession.swift; sourceTree = "<absolute>"; };
+		9571CA5B1FE5875B008552F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
+		9571CA5D1FE587C1008552F0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/PreferencesWindow.strings; sourceTree = "<group>"; };
+		9571CA5E1FE587C1008552F0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		9571CA601FE588C7008552F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		9571CA621FE588D0008552F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PreferencesWindow.strings; sourceTree = "<group>"; };
+		9571CA6B1FE5971C008552F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = PairProgram/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9571CA6D1FE59720008552F0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = PairProgram/fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9571CA6E1FE59721008552F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = PairProgram/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		959EA9B91FDF1DA9004CD926 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		959EA9BB1FDF1EBC004CD926 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HotKey.framework; path = PairProgram/Carthage/Build/Mac/HotKey.framework; sourceTree = "<group>"; };
 		95FAA8C71FDC9BA4006EAAD1 /* PairProgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PairProgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +71,7 @@
 		95FAA8BE1FDC9BA4006EAAD1 = {
 			isa = PBXGroup;
 			children = (
+				9571CA6A1FE5971C008552F0 /* Localizable.strings */,
 				959EA9BB1FDF1EBC004CD926 /* HotKey.framework */,
 				95FAA8C91FDC9BA4006EAAD1 /* PairProgram */,
 				95FAA8C81FDC9BA4006EAAD1 /* Products */,
@@ -83,7 +92,7 @@
 				9559575F1FDC9CAB0082F527 /* StatusMenuController.swift */,
 				955957641FDC9CB40082F527 /* PPSession.swift */,
 				955957621FDC9CB20082F527 /* PreferencesWindow.swift */,
-				955957611FDC9CB00082F527 /* PreferencesWindow.xib */,
+				9571CA5C1FE5875B008552F0 /* PreferencesWindow.xib */,
 				95FAA8CA1FDC9BA4006EAAD1 /* AppDelegate.swift */,
 				95FAA8CC1FDC9BA4006EAAD1 /* Assets.xcassets */,
 				95FAA8CE1FDC9BA4006EAAD1 /* MainMenu.xib */,
@@ -138,6 +147,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 95FAA8BE1FDC9BA4006EAAD1;
 			productRefGroup = 95FAA8C81FDC9BA4006EAAD1 /* Products */;
@@ -154,8 +164,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9571CA6C1FE5971C008552F0 /* Localizable.strings in Resources */,
 				95FAA8CD1FDC9BA4006EAAD1 /* Assets.xcassets in Resources */,
-				955957661FDC9E8A0082F527 /* PreferencesWindow.xib in Resources */,
+				9571CA5A1FE5875B008552F0 /* PreferencesWindow.xib in Resources */,
 				959EA9BA1FDF1DA9004CD926 /* Cartfile in Resources */,
 				95FAA8D01FDC9BA4006EAAD1 /* MainMenu.xib in Resources */,
 			);
@@ -178,10 +189,33 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		9571CA5C1FE5875B008552F0 /* PreferencesWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9571CA5B1FE5875B008552F0 /* Base */,
+				9571CA5D1FE587C1008552F0 /* fr */,
+				9571CA621FE588D0008552F0 /* en */,
+			);
+			name = PreferencesWindow.xib;
+			path = /Volumes/Dev/PairProgram/PairProgram;
+			sourceTree = "<absolute>";
+		};
+		9571CA6A1FE5971C008552F0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9571CA6B1FE5971C008552F0 /* Base */,
+				9571CA6D1FE59720008552F0 /* fr */,
+				9571CA6E1FE59721008552F0 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		95FAA8CE1FDC9BA4006EAAD1 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				95FAA8CF1FDC9BA4006EAAD1 /* Base */,
+				9571CA5E1FE587C1008552F0 /* fr */,
+				9571CA601FE588C7008552F0 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -193,6 +227,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -250,6 +285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

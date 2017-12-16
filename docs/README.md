@@ -15,7 +15,7 @@ A timer in your Mac tray to pair program easily.
 
 ## Keyboard Shortcuts
 
- - Start / Continue / Resume : Alt+G (for "Go")
+ - Start / Continue / Resume : Alt+G
  - Pause / Resume : Alt+P
  - End: Alt+E
 
@@ -25,7 +25,9 @@ Email me at foucauld.degeorges@gmail.com if you encounter issues or if you have 
 
 ## Changelog
 
- - 1.0.0: initial release!
+ - 1.2: adds notifications and French translation
+ - 1.1: improve config screen, add keyboard shortcuts
+ - 1.0: initial release
 
 ## Coming up
 

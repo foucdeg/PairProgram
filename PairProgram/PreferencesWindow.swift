@@ -19,13 +19,30 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
     var delegate: PreferencesWindowDelegate?
     
     static let durationOptions:Array<String> = [
-        "1 Minute", "2 Minutes", "3 Minutes", "4 Minutes", "5 Minutes",
-        "6 Minute", "7 Minutes", "8 Minutes", "9 Minutes", "10 Minutes",
+        NSLocalizedString("durationChoices.one", comment: ""),
+        String(format: NSLocalizedString("durationChoices.many", comment: ""), 2),
+        String(format: NSLocalizedString("durationChoices.many", comment: ""), 3),
+        String(format: NSLocalizedString("durationChoices.many", comment: ""), 4),
+        String(format: NSLocalizedString("durationChoices.many", comment: ""), 5),
+        String(format: NSLocalizedString("durationChoices.many", comment: ""), 6),
+        String(format: NSLocalizedString("durationChoices.many", comment: ""), 7),
+        String(format: NSLocalizedString("durationChoices.many", comment: ""), 8),
+        String(format: NSLocalizedString("durationChoices.many", comment: ""), 9),
+        String(format: NSLocalizedString("durationChoices.many", comment: ""), 10)
     ]
     
     static let cycleOptions:Array<String> = [
-        "Unlimited", "1 Cycle", "2 Cycles", "3 Cycles", "4 Cycles", "5 Cycles",
-        "6 Cycles", "7 Cycles", "8 Cycles", "9 Cycles", "10 Cycles",
+        NSLocalizedString("cycleChoices.unlimited", comment: ""),
+        NSLocalizedString("cycleChoices.one", comment: ""),
+        String(format: NSLocalizedString("cycleChoices.many", comment: ""), 2),
+        String(format: NSLocalizedString("cycleChoices.many", comment: ""), 3),
+        String(format: NSLocalizedString("cycleChoices.many", comment: ""), 4),
+        String(format: NSLocalizedString("cycleChoices.many", comment: ""), 5),
+        String(format: NSLocalizedString("cycleChoices.many", comment: ""), 6),
+        String(format: NSLocalizedString("cycleChoices.many", comment: ""), 7),
+        String(format: NSLocalizedString("cycleChoices.many", comment: ""), 8),
+        String(format: NSLocalizedString("cycleChoices.many", comment: ""), 9),
+        String(format: NSLocalizedString("cycleChoices.many", comment: ""), 10)
     ]
     
     override var windowNibName : NSNib.Name! {
@@ -38,6 +55,7 @@ class PreferencesWindow: NSWindowController, NSWindowDelegate {
         durationSelector.addItems(withTitles: PreferencesWindow.durationOptions)
         numberOfCycles.removeAllItems()
         numberOfCycles.addItems(withTitles: PreferencesWindow.cycleOptions)
+
         self.window?.level = .floating
         
         let defaults = UserDefaults.standard

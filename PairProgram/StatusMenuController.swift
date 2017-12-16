@@ -16,11 +16,11 @@ enum PPError: Error {
 }
 
 enum PPState {
-    case STATE_INIT, STATE_PREFS, STATE_CODING, STATE_WAITING, STATE_CODING_PAUSED, STATE_WAITING_PAUSED
+    case STATE_INIT, STATE_PREFS, STATE_CODING, STATE_WAITING, STATE_CODING_PAUSED, STATE_WAITING_PAUSED, STATE_FINISHED
 }
 
 @available(OSX 10.11, *)
-class StatusMenuController: NSViewController, PreferencesWindowDelegate {
+class StatusMenuController: NSViewController, PreferencesWindowDelegate, NSUserNotificationCenterDelegate {
 
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var quickStartMenuItem: NSMenuItem!
@@ -99,7 +99,8 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
         goHotKey = HotKey(keyCombo: KeyCombo(key: .g, modifiers: [.option]))
         pauseHotKey = HotKey(keyCombo: KeyCombo(key: .p, modifiers: [.option]))
         endHotKey = HotKey(keyCombo: KeyCombo(key: .e, modifiers: [.option]))
-
+        
+        NSUserNotificationCenter.default.delegate = self
     }
 
     // HELPERS
@@ -127,6 +128,10 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
     func hasMoreRounds() -> Bool {
         return (self.totalCycles! == 0) || (self.currentCycle < self.totalCycles!) || (self.currentPlayer == 0)
     }
+    
+    func getNextPlayer() -> Int {
+        return (self.currentPlayer + 1) % 2;
+    }
 
 
     func updateStatusLine() {
@@ -139,18 +144,19 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
 
     func getCurrentRunInfo() -> String {
         if (self.state == .STATE_INIT) {
-            return "Not Running"
+            return NSLocalizedString("status.notRunning", comment: "")
         }
-        let playerString = "player " +
-            String(self.currentPlayer + 1)
-
-        let cycleString = "Round " + String(self.currentCycle) + (self.totalCycles! > 0 ? "/" + String(self.totalCycles!) : "")
-
-        return cycleString + ", " + playerString
+        if (self.totalCycles! > 0) {
+            return String(format: NSLocalizedString("status.formatWithTotalCycles", comment: ""), self.currentCycle, self.totalCycles!, self.currentPlayer + 1)
+        }
+        return String(format: NSLocalizedString("status.format", comment: ""), self.currentCycle, self.currentPlayer + 1)
     }
 
     func getStartText() -> String {
-        return "Start " + (self.totalCycles! > 0 ? String(self.totalCycles!) + " " : "") + "rounds of " + String(self.duration!) + " minutes"
+        if (self.totalCycles! > 0) {
+            return String(format: NSLocalizedString("start.defaultWithTotalCycles", comment: ""), self.totalCycles!, self.duration!)
+        }
+        return String(format: NSLocalizedString("start.default", comment: ""), self.duration!)
     }
 
     func playAlarm() -> Void {
@@ -166,6 +172,28 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
             }
         }
     }
+    
+    func showNotification() {
+        let notification = NSUserNotification()
+        if self.state == .STATE_WAITING {
+            notification.title = NSLocalizedString("notif.switch", comment: "")
+            notification.informativeText = String(format: NSLocalizedString("notif.switchToPlayer", comment: ""), self.getNextPlayer() + 1)
+            notification.hasActionButton = true
+            notification.actionButtonTitle = NSLocalizedString("notif.switchAction", comment: "")
+        }
+        else if self.state == .STATE_FINISHED {
+            notification.title = NSLocalizedString("notif.itsOver", comment: "")
+            notification.informativeText = NSLocalizedString("notif.finished", comment: "")
+            notification.hasActionButton = true
+            notification.actionButtonTitle = NSLocalizedString("notif.end", comment: "")
+        }
+        
+        NSUserNotificationCenter.default.deliver(notification)
+    }
+    
+    func hideNotification() {
+        NSUserNotificationCenter.default.removeAllDeliveredNotifications()
+    }
 
     // EVENT HANDLERS
 
@@ -174,8 +202,12 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
     }
 
     func onRunEnd() -> () {
-        self.transitionFromCodingToWaiting()
-
+        if (self.hasMoreRounds()) {
+            self.transitionFromCodingToWaiting()
+        }
+        else {
+            self.transitionFromCodingToFinished()
+        }
     }
 
     @IBAction func quitClicked(sender: NSMenuItem) {
@@ -187,13 +219,7 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
     }
 
     @IBAction func continueClicked(sender: NSMenuItem) {
-        if (self.hasMoreRounds()) {
-           self.transitionFromWaitingToCoding()
-        }
-        else {
-            self.transitionFromWaitingToInit()
-        }
-
+        self.transitionFromWaitingToCoding()
     }
 
     @IBAction func pauseClicked(sender: NSMenuItem) {
@@ -215,17 +241,21 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
     }
 
     @IBAction func endClicked(sender: NSMenuItem) {
-        if (self.state == .STATE_CODING) {
+        switch(self.state) {
+        case .STATE_INIT:
+            return
+        case .STATE_PREFS:
+            return
+        case .STATE_CODING:
             return self.transitionFromCodingToInit()
-        }
-        if (self.state == .STATE_WAITING) {
+        case .STATE_WAITING:
             return self.transitionFromWaitingToInit()
-        }
-        if (self.state == .STATE_CODING_PAUSED) {
+        case .STATE_CODING_PAUSED:
             return self.transitionFromCodingPauseToInit()
-        }
-        if (self.state == .STATE_WAITING_PAUSED) {
+        case .STATE_WAITING_PAUSED:
             return self.transitionFromWaitingPauseToInit()
+        case .STATE_FINISHED:
+            return self.transitionFromFinishedToInit()
         }
     }
 
@@ -234,10 +264,7 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
         case .STATE_INIT:
             return self.transitionFromInitToCoding()
         case .STATE_WAITING:
-            if (self.hasMoreRounds()) {
-                return self.transitionFromWaitingToCoding()
-            }
-            return self.transitionFromWaitingToInit()
+            return self.transitionFromWaitingToCoding()
         case .STATE_CODING_PAUSED:
             return self.transitionFromCodingPauseToCoding()
         case .STATE_WAITING_PAUSED:
@@ -246,6 +273,8 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
             return
         case .STATE_CODING:
             return
+        case .STATE_FINISHED:
+            return self.transitionFromFinishedToInit()
         }
     }
 
@@ -258,13 +287,13 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
         case .STATE_CODING:
             return self.transitionFromCodingToCodingPause()
         case .STATE_WAITING:
-            if self.hasMoreRounds() {
-                return self.transitionFromWaitingToWaitingPause()
-            }
+            return self.transitionFromWaitingToWaitingPause()
         case .STATE_CODING_PAUSED:
             return self.transitionFromCodingPauseToCoding()
         case .STATE_WAITING_PAUSED:
             return self.transitionFromWaitingPauseToCoding()
+        case .STATE_FINISHED:
+            return
         }
     }
 
@@ -282,6 +311,8 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
             return self.transitionFromCodingPauseToInit()
         case .STATE_WAITING_PAUSED:
             return self.transitionFromWaitingPauseToInit()
+        case .STATE_FINISHED:
+            self.transitionFromFinishedToInit()
         }
     }
 
@@ -295,6 +326,18 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
 
     func preferencesDidClose() {
         self.transitionFromPrefsToInit()
+    }
+    
+    func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
+        switch (notification.activationType) {
+        case .actionButtonClicked:
+            if (self.state == .STATE_WAITING) {
+                return self.transitionFromWaitingToCoding()
+            }
+            return self.transitionFromFinishedToInit()
+        default:
+            break;
+        }
     }
 
 
@@ -357,24 +400,31 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
     func transitionFromCodingToWaiting() {
         try! self.assertState(expectedState: .STATE_CODING)
 
-        self.playAlarm()
         self.state = .STATE_WAITING
+        self.playAlarm()
+        self.showNotification()
 
-        if (self.hasMoreRounds()) {
-            statusItem.title = "Switch!"
-            self.continueMenuItem.isHidden = false
-            self.continueMenuItem.title = "Continue (Player " + String(((self.currentPlayer + 1) % 2) + 1) + ")"
-        }
-        else {
-            statusItem.title = "End!"
-            self.pauseMenuItem.isHidden = true
-        }
+        statusItem.title = NSLocalizedString("menu.switch", comment: "") //"Switch!"
+        self.continueMenuItem.isHidden = false
+        self.continueMenuItem.title = String(format: NSLocalizedString("menu.continue", comment: ""), self.getNextPlayer() + 1)
+    }
+    
+    func transitionFromCodingToFinished() {
+        try! self.assertState(expectedState: .STATE_CODING)
+        
+        self.state = .STATE_FINISHED
+        self.playAlarm()
+        self.showNotification()
+
+        statusItem.title = "End!"
+        self.pauseMenuItem.isHidden = true
     }
 
     func transitionFromWaitingToInit() {
         try! self.assertState(expectedState: .STATE_WAITING)
 
         audio?.stop()
+        self.hideNotification()
         statusItem.title = nil
         self.currentPlayer = 0
         self.currentCycle = 1
@@ -392,6 +442,7 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
         try! self.assertState(expectedState: .STATE_WAITING)
 
         audio?.stop()
+        self.hideNotification()
         self.session.startSession(duration: self.duration!)
         self.currentPlayer = (self.currentPlayer + 1) % 2
         if (self.currentPlayer == 0) {
@@ -430,6 +481,7 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
         try! self.assertState(expectedState: .STATE_WAITING)
 
         audio?.stop()
+        self.hideNotification()
         self.continueMenuItem.isHidden = true
         self.pauseMenuItem.isHidden = true
         self.resumeMenuItem.isHidden = false
@@ -444,12 +496,7 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
         self.pauseMenuItem.isHidden = false
 
         self.state = .STATE_WAITING
-        if (self.hasMoreRounds()) {
-            self.transitionFromWaitingToCoding()
-        }
-        else {
-            self.transitionFromWaitingToInit()
-        }
+        self.transitionFromWaitingToCoding()
     }
 
     func transitionFromCodingPauseToInit() {
@@ -478,6 +525,24 @@ class StatusMenuController: NSViewController, PreferencesWindowDelegate {
         statusItem.title = nil
         self.state = .STATE_INIT
         self.updateStatusLine()
+    }
+    
+    func transitionFromFinishedToInit() {
+        try! self.assertState(expectedState: .STATE_FINISHED)
+    
+        audio?.stop()
+        self.hideNotification()
+        statusItem.title = nil
+        self.currentPlayer = 0
+        self.currentCycle = 1
+        self.state = .STATE_INIT
+        self.updateStatusLine()
+        self.continueMenuItem.isHidden = true
+        self.pauseMenuItem.isHidden = true
+        self.endMenuItem.isHidden = true
+        self.quickStartMenuItem.isHidden = false
+        self.customStartMenuItem.isHidden = false
+        self.statusItem.image = self.baseIcon
     }
 
     func transitionFromAnyToQuit() {

@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  PairProgram
+
+  Created by Foucauld Degeorges on 16/12/2017.
+  Copyright © 2017 Foucauld Degeorges. All rights reserved.
+*/
+
+// Menu
+"menu.switch"   = "On change !";
+"menu.continue" = "Continuer (joueur %d)";
+
+
+// Menu status line
+"status.notRunning"            = "Pas de session en cours";
+"status.formatWithTotalCycles" = "Tour %d/%d, joueur %d";
+"status.format"                = "Tour %d, joueur %d";
+"start.defaultWithTotalCycles" = "Démarrer %d cycles de %d minutes";
+"start.default"                = "Démarrer des cycles de %d minutes";
+
+// Notification content
+"notif.switch"         = "On change !";
+"notif.switchToPlayer" = "Passez le clavier au joueur %d.";
+"notif.switchAction"   = "Continuer (⌥G)";
+"notif.itsOver"        = "C'est fini !";
+"notif.finished"       = "Votre session de pair programming est terminée.";
+"notif.end"            = "Terminer (⌥E)";
+
+// Duration choices
+"durationChoices.one"   = "1 minute";
+"durationChoices.many"  = "%d minutes";
+
+// Cycle choices
+"cycleChoices.one"       = "1 cycle";
+"cycleChoices.many"      = "%d cycles";
+"cycleChoices.unlimited" = "Illimité";
